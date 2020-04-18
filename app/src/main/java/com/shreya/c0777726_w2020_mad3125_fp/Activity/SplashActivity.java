@@ -7,7 +7,7 @@ import android.os.Handler;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.c0775696_w2020_mad3125_fp.R;
+import com.shreya.c0777726_w2020_mad3125_fp.R;
 
 public class SplashActivity extends AppCompatActivity
 {
