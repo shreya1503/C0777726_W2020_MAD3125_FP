@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.c0775696_w2020_mad3125_fp.Activity.ShowBillDetailActivity;
-import com.example.c0775696_w2020_mad3125_fp.Model.Customer;
-import com.example.c0775696_w2020_mad3125_fp.R;
+import com.shreya.c0777726_w2020_mad3125_fp.Activity.ShowBillDetailActivity;
+import com.shreya.c0777726_w2020_mad3125_fp.Model.Customer;
+import com.shreya.c0777726_w2020_mad3125_fp.R;
 import com.shreya.c0777726_w2020_mad3125_fp.R;
 
 import java.util.ArrayList;
