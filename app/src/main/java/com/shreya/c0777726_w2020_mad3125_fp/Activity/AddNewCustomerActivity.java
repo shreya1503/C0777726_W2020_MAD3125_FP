@@ -32,5 +32,53 @@ public class AddNewCustomerActivity extends AppCompatActivity
     private Button btnAdd, btnClear;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_new_customer);
+        edtCustomerId = findViewById(R.id.edtCustomerId);
+        edtFirstName = findViewById(R.id.edtFirstName);
+        edtLastName = findViewById(R.id.edtLastName);
+        edtBirthDate = findViewById(R.id.edtBirthDate);
+        edtUsername = findViewById(R.id.edtUsername);
+        edtEmail = findViewById(R.id.edtEmail);
+        edtPassword = findViewById(R.id.edtPassword);
+        edtLocation = findViewById(R.id.edtLocation);
+        edtCustomerIdText = findViewById(R.id.edtCustomerIdText);
+        edtFirstNameText = findViewById(R.id.edtFirstNameText);
+        edtLastNameText = findViewById(R.id.edtLastNameText);
+        edtBirthDateText = findViewById(R.id.edtBirthDateText);
+        edtUsernameText = findViewById(R.id.edtUsernameText);
+        edtEmailText = findViewById(R.id.edtEmailText);
+        edtPasswordText = findViewById(R.id.edtPasswordText);
+        edtLocationText = findViewById(R.id.edtLocationText);
+
+        rdBtnMale = findViewById(R.id.rdBtnMale);
+        rdBtnFemale = findViewById(R.id.rdBtnFemale);
+        rdBtnOther = findViewById(R.id.rdBtnOther);
+
+        btnAdd = findViewById(R.id.btnAdd);
+        btnClear = findViewById(R.id.btnClear);
+
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.hide();
+
+        addDatePicker();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fieldCheck();
+            }
+        });
+
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fieldClear();
+            }
+        });
+    }
 
 }
