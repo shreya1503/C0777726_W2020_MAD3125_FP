@@ -72,10 +72,13 @@ public class DataSingleton
                 "Rogers",
                 20.5);
 
-        c2.addBill("IN01", in1);
         c1.addBill("MB01", m1);
         c1.addBill("HY01", h1);
 
+        c2.addBill("IN01", in1);
+
+        c3.addBill("IN02", in2);
+        c3.addBill("HY02", h2);
 
 
 
