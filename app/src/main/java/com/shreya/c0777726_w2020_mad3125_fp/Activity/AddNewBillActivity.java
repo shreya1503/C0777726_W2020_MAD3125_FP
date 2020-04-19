@@ -239,4 +239,14 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         edtManuftrName.setVisibility(View.VISIBLE);
     }
 
+    public void hidefields()
+    {
+        edtMinsUsed.setVisibility(View.INVISIBLE);
+        edtNumber.setVisibility(View.INVISIBLE);
+        edtDataUsed.setVisibility(View.INVISIBLE);
+        edtMinsUsed.setVisibility(View.INVISIBLE);
+        edtPlanName.setVisibility(View.INVISIBLE);
+        edtManuftrName.setVisibility(View.INVISIBLE);
+    }
+
 }
