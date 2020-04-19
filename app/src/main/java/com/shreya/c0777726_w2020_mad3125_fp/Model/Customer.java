@@ -32,5 +32,22 @@ public class Customer implements Parcelable
         this.gender = gender;
     }
 
+    protected Customer(Parcel in)
+    {
+        customerId = in.readString();
+        firstName = in.readString();
+        lastName = in.readString();
+        gender = in.readString();
+        email = in.readString();
+        userName = in.readString();
+        password = in.readString();
+        location = in.readString();
+        dateOfBirth = in.readString();
+        customerBills = in.readHashMap(Bill.class.getClassLoader());
+        allTotal = in.readDouble();
+        customerImg = in.readInt();
+    }
+
+
 
 }
