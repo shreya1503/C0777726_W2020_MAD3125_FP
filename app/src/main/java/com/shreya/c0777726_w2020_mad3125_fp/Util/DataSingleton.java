@@ -38,6 +38,18 @@ public class DataSingleton
         Customer c3 = new Customer("C03","Krishiv","Raj",
                 "Male","Krish@mail.com","Palak789","123456","Markham",
                 "17/Feb/1997",R.drawable.male);
+
+        Mobile m1 = new Mobile("MB01",
+                "09/Nov/2010",
+                Bill.BillType.Mobile,
+                "APPLE INC.",
+                "Best Plan",
+                "4372435081",
+                5,
+                29);
+
+
+
     }
 }
 
