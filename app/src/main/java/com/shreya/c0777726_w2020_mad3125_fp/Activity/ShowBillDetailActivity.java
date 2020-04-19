@@ -30,4 +30,32 @@ public class ShowBillDetailActivity extends AppCompatActivity
     private TextView txtTotalAmount;
     Customer customerObj;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_bill_detail);
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setTitle("Utility Bills");
+        Intent mIntent = getIntent();
+        customerObj = mIntent.getParcelableExtra("CustomerBills");
+        billsArrayList = customerObj.getBills();
+        txtTotalAmount = findViewById(R.id.txtTotalAmount);
+        if(!billsArrayList.isEmpty()){
+            txtTotalAmount.setText("Total Bill To Pay Is:"+ UtilMethods.getInstance().doubleFormatter((customerObj.getTotalAmount())));
+        }
+        else
+        {
+            txtTotalAmount.setText("There Are No Bills To Pay");
+        }
+        rvBillsList = findViewById(R.id.rvBillsList);
+        billsAdapter = new BillAdapter(this.billsArrayList);
+
+        RecyclerView.LayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+
+        rvBillsList.setLayoutManager(mLinearLayoutManager);
+        rvBillsList.setAdapter(billsAdapter);
+    }
+
+
 }
