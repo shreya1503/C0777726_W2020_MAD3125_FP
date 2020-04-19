@@ -81,6 +81,9 @@ public class DataSingleton
         c3.addBill("HY02", h2);
 
 
+        customerMap.put(c1.getCustomerId(),c1);
+        customerMap.put(c2.getCustomerId(),c2);
+        customerMap.put(c3.getCustomerId(),c3);
 
 
 
