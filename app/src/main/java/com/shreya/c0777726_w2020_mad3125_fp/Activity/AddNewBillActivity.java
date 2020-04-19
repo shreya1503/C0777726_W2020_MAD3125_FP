@@ -92,9 +92,13 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             {
                 clearfields();
             }
+
+            addDatePicker();
+
         });
 
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -135,12 +139,94 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             edtAgencyName.setVisibility(View.VISIBLE);
             edtAgencyName.setHint("ENTER AGENCY NAME");
             edtUnitsUsed.setHint("ENTER UNITS USED");
-            btnBillAdd.setOnClickListener(new View.OnClickListener()
-            {
-
+            btnBillAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+                public void onClick(View v) {
+                    Hydro hObj = new Hydro   (edtBillIdText.getText().toString(),
+                            edtBillDateText.getText().toString(),
+                            Bill.BillType.Hydro,
+                            edtAgencyNameText.getText().toString(),
+                            Integer.parseInt(edtUnitsUsedText.getText().toString()));
+                    custObj.getCustomerBills().put(hObj.getBillId(),hObj);
+                    Intent mIntent = new Intent(AddNewBillActivity.this, ShowBillDetailActivity.class);
+                    mIntent.putExtra("CustomerBills", custObj);
+                    startActivity(mIntent);
+                }
+            });
+        }
 
+        if(position == 2)
+        {
+            hidefields();
+            clearfields();
+            edtUnitsUsed.setVisibility(View.VISIBLE);
+            edtAgencyName.setVisibility(View.VISIBLE);
+            edtAgencyName.setHint("ENTER PROVIDER NAME");
+            edtUnitsUsed.setHint("ENTER DATA USED");
+            btnBillAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Internet iObj = new Internet   (edtBillIdText.getText().toString(),
+                            edtBillDateText.getText().toString(),
+                            Bill.BillType.Hydro,
+                            edtAgencyNameText.getText().toString(),
+                            Double.parseDouble(edtUnitsUsedText.getText().toString()));
+                    custObj.getCustomerBills().put(iObj.getBillId(),iObj);
+                    Intent mIntent = new Intent(AddNewBillActivity.this, ShowBillDetailActivity.class);
+                    mIntent.putExtra("CustomerBills", custObj);
+                    startActivity(mIntent);
+                }
+            });
+        }
     }
 
-        }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    private void addDatePicker()
+    {
+        edtBillDateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        AddNewBillActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day)
+            {
+                String date ="";
+                month = month + 1;
+                String monthName = getMonthName(month);
+                if(day<10) {
+                    date = "0"+day + "/" + monthName + "/" + year;
+                }
+                else
+                {
+                    date = day + "/" + monthName + "/" + year;
+                }
+                edtBillDateText.setText(date);
+            }
+        };
+    }
+
+    public static String getMonthName(int monthNumber){
+        String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        return monthNames[monthNumber-1];
+    }
+
+}
