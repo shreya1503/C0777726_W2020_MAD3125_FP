@@ -81,4 +81,39 @@ public class AddNewCustomerActivity extends AppCompatActivity
         });
     }
 
+    private void addDatePicker() {
+        edtBirthDateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        AddNewCustomerActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                String date = "";
+                month = month + 1;
+                String monthName = getMonthName(month);
+                if (day < 10) {
+                    date = "0" + day + "/" + monthName + "/" + year;
+                } else {
+                    date = day + "/" + monthName + "/" + year;
+                }
+                edtBirthDateText.setText(date);
+            }
+        };
+    }
+
+
 }
