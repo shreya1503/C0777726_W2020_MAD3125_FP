@@ -18,7 +18,8 @@ public class DataSingleton
         return repoObj;
     }
 
-    private DataSingleton() {
+    private DataSingleton()
+    {
     }
 
     private HashMap<String, Customer> customerMap = new HashMap<>();
