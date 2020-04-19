@@ -85,8 +85,6 @@ public class DataSingleton
         customerMap.put(c2.getCustomerId(),c2);
         customerMap.put(c3.getCustomerId(),c3);
 
-
-
     }
 }
 
