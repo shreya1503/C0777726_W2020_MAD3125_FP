@@ -67,4 +67,120 @@ public class Customer implements Parcelable
     }
 
 
+    public Customer (String customerId,
+                     String firstName,
+                     String lastName,
+                     String gender,
+                     String email,
+                     String userName,
+                     String password,
+                     String location,
+                     String dateOfBirth,
+                     Integer customerImg)
+    {
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.location = location;
+        this.dateOfBirth = dateOfBirth;
+        this.customerImg = customerImg;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void addBill(String billId, Bill bill)
+    {
+        this.customerBills.put(billId, bill);
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public HashMap<String, Bill> getCustomerBills() {
+        return customerBills;
+    }
+
+
+    public void setCustomerBills(HashMap<String, Bill> customerBills)
+    {
+        this.customerBills = customerBills;
+    }
+
+    public Double getAllTotal() {
+        return allTotal;
+    }
+
+    public void setAllTotal(Double allTotal) {
+        this.allTotal = allTotal;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
 }
