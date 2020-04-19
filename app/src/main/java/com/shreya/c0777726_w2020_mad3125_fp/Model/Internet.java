@@ -13,4 +13,19 @@ public class Internet extends Bill
         this.gbUsed = gbUsed;
         this.billTotal = billCalculate();
     }
+
+    @Override
+    public Double billCalculate()
+    {
+        double billAmount = 0.0;
+        if( gbUsed < 10)
+        {
+            billAmount = 3 * gbUsed;
+        }
+        else {
+            billAmount = 3.5 * gbUsed;
+        }
+        return billAmount;
+    }
+
 }
