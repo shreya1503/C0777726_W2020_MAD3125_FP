@@ -85,6 +85,15 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
 
         spnBillType.setOnItemSelectedListener(this);
 
+        btnBillClear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                clearfields();
+            }
+        });
+
     }
 
     @Override
