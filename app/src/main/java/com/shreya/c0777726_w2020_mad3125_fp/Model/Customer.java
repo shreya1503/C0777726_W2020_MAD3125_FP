@@ -24,4 +24,13 @@ public class Customer implements Parcelable
     private Double allTotal;
     private int customerImg;
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
 }
