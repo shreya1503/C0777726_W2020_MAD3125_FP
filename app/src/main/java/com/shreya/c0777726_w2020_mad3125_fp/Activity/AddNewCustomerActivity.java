@@ -115,5 +115,154 @@ public class AddNewCustomerActivity extends AppCompatActivity
         };
     }
 
+    public static String getMonthName(int monthNumber)
+    {
+        String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
+        return monthNames[monthNumber - 1];
+    }
+    public void fieldCheck()
+    {
+        boolean Flag = false;
+        if(edtCustomerIdText.getText().toString().isEmpty())
+        {
+            edtCustomerId.setError("Customer Needed");
+            Flag = true;
+            return;
+        }
+        if(edtFirstNameText.getText().toString().isEmpty()){
+            edtFirstName.setError("First Name Needed");
+            Flag = true;
+            return;
+        }
+        if(edtLastNameText.getText().toString().isEmpty())
+        {
+            edtLastName.setError("Last Name Needed");
+            Flag = true;
+            return;
+        }
+        if(edtBirthDateText.getText().toString().isEmpty())
+        {
+            edtBirthDate.setError("Birth Date Needed");
+            Flag = true;
+            return;
+        }
+        if(edtUsernameText.getText().toString().isEmpty())
+        {
+            edtUsername.setErrorEnabled(true);
+            edtUsername.setError("User Name Needed");
+            Flag = true;
+            return;
+        }
+        if(edtEmailText.getText().toString().isEmpty())
+        {
+            edtEmail.setError("Email Needed");
+            Flag = true;
+            return;
+        }
+        if(edtPasswordText.getText().toString().isEmpty())
+        {
+            edtPassword.setErrorEnabled(true);
+            edtPassword.setError("Password Needed");
+            Flag = true;
+            return;
+        }
+        if(edtLocationText.getText().toString().isEmpty())
+        {
+            edtLocation.setError("Location Needed");
+            Flag = true;
+            return;
+        }
+        if(!Flag)
+        {
+            if(getGender().equals("Female"))
+            {
+                Customer customer = new Customer(edtCustomerIdText.getText().toString(),
+                        edtFirstNameText.getText().toString(),
+                        edtLastNameText.getText().toString(),
+                        getGender(),
+                        edtEmailText.getText().toString(),
+                        edtUsernameText.getText().toString(),
+                        edtPasswordText.getText().toString(),
+                        edtLocationText.getText().toString(),
+                        edtBirthDateText.getText().toString(),
+                        R.drawable.women);
+                DataSingelton.getInstance().getCustomerMap().put(customer.getCustomerId(), customer);
+                Intent mIntent = new Intent(AddNewCustomerActivity.this, CustomerListActivity.class);
+                mIntent.putExtra("Customer", customer);
+                startActivity(mIntent);
+
+            }
+
+            else if(getGender().equals("Male"))
+            {
+                Customer customer = new Customer(edtCustomerIdText.getText().toString(),
+                        edtFirstNameText.getText().toString(),
+                        edtLastNameText.getText().toString(),
+                        getGender(),
+                        edtEmailText.getText().toString(),
+                        edtUsernameText.getText().toString(),
+                        edtPasswordText.getText().toString(),
+                        edtLocationText.getText().toString(),
+                        edtBirthDateText.getText().toString(),
+                        R.drawable.man);
+                DataSingelton.getInstance().getCustomerMap().put(customer.getCustomerId(), customer);
+                Intent mIntent = new Intent(AddNewCustomerActivity.this, CustomerListActivity.class);
+                mIntent.putExtra("Customer", customer);
+                startActivity(mIntent);
+            }
+            else if (getGender().equals("Other"))
+            {
+                Customer customer = new Customer(edtCustomerIdText.getText().toString(),
+                        edtFirstNameText.getText().toString(),
+                        edtLastNameText.getText().toString(),
+                        getGender(),
+                        edtEmailText.getText().toString(),
+                        edtUsernameText.getText().toString(),
+                        edtPasswordText.getText().toString(),
+                        edtLocationText.getText().toString(),
+                        edtBirthDateText.getText().toString(),
+                        R.drawable.other);
+                DataSingelton.getInstance().getCustomerMap().put(customer.getCustomerId(), customer);
+                Intent mIntent = new Intent(AddNewCustomerActivity.this, CustomerListActivity.class);
+                mIntent.putExtra("Customer", customer);
+                startActivity(mIntent);
+
+            }
+        }
+
+    }
+
+    public String getGender()
+    {
+        if (rdBtnMale.isChecked())
+        {
+            return "Male";
+        }
+        else if (rdBtnFemale.isChecked())
+        {
+            return "Female";
+        }
+        else if(rdBtnOther.isChecked())
+        {
+            return "Other";
+        }
+        return null;
+    }
+
+    public void fieldClear()
+    {
+        edtUsernameText.getText().clear();
+        edtPasswordText.getText().clear();
+        edtBirthDateText.getText().clear();
+        edtCustomerIdText.getText().clear();
+        edtEmailText.getText().clear();
+        edtLastNameText.getText().clear();
+        edtFirstNameText.getText().clear();
+        edtLocationText.getText().clear();
+
+        rdBtnFemale.setChecked(false);
+        rdBtnMale.setChecked(false);
+        rdBtnOther.setChecked(false);
+    }
 
 }
