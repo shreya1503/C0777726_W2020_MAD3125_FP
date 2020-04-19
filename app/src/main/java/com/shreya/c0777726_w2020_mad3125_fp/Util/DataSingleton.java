@@ -48,6 +48,21 @@ public class DataSingleton
                 5,
                 29);
 
+        Hydro h1 = new Hydro( "HY01",
+                "01/Dec/2013",
+                Bill.BillType.Hydro,
+                "YourHydro",
+                28);
+
+        Hydro h2 = new Hydro( "HY02",
+                "14/Jan/2016",
+                Bill.BillType.Hydro,
+                "Home Fast",
+                15);
+
+
+
+
 
 
     }
