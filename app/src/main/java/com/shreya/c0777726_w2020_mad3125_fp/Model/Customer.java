@@ -213,5 +213,14 @@ public class Customer implements Parcelable
         return billsList;
     }
 
+    public double getTotalAmount()
+    {
+        double allTotalcust = 0.0d;
+        for (Bill b : customerBills.values())
+        {
+            allTotalcust += b.billTotal;
+        }
+        return allTotalcust;
+    }
 
 }
