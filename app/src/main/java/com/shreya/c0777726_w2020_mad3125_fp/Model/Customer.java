@@ -206,6 +206,12 @@ public class Customer implements Parcelable
         dest.writeInt(customerImg);
     }
 
+    public ArrayList<Bill> getBills()
+    {
+        Collection<Bill> tempBillValues = customerBills.values();
+        ArrayList<Bill> billsList = new ArrayList<>(tempBillValues);
+        return billsList;
+    }
 
 
 }
