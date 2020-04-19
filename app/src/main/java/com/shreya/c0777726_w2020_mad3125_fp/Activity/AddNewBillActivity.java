@@ -17,12 +17,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.shreya.c0777726_w2020_mad3125_fp.R;
 import com.shreya.c0777726_w2020_mad3125_fp.Model.Bill;
 import com.shreya.c0777726_w2020_mad3125_fp.Model.Customer;
 import com.shreya.c0777726_w2020_mad3125_fp.Model.Hydro;
 import com.shreya.c0777726_w2020_mad3125_fp.Model.Internet;
 import com.shreya.c0777726_w2020_mad3125_fp.Model.Mobile;
+import com.shreya.c0777726_w2020_mad3125_fp.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -32,11 +32,11 @@ import java.util.Calendar;
 public class AddNewBillActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener
 {
     private Spinner spnBillType;
-    private TextInputLayout edtBillId, edtNumber, edtBillDate, edtDataUsed, edtMinsUsed, edtManuftrName;
-    private TextInputLayout edtPlanName, edtUnitsUsed, edtAgencyName;
-    private TextInputEditText edtBillIdText, edtNumberText, edtBillDateText, edtDataUsedText, edtMinsUsedText, edtManuftrNameText;
-    private TextInputEditText edtPlanNameText, edtUnitsUsedText, edtAgencyNameText;
-    private Button btnBillAdd, btnBillClear;
+    private TextInputLayout edtBillId,edtNumber,edtBillDate,edtDataUsed,edtMinsUsed,edtManuftrName;
+    private TextInputLayout edtPlanName,edtUnitsUsed,edtAgencyName;
+    private TextInputEditText edtBillIdText,edtNumberText,edtBillDateText,edtDataUsedText,edtMinsUsedText,edtManuftrNameText;
+    private TextInputEditText edtPlanNameText,edtUnitsUsedText,edtAgencyNameText;
+    private Button btnBillAdd,btnBillClear;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     Customer custObj;
 
@@ -47,7 +47,6 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         setContentView(R.layout.activity_add_new_bill);
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.hide();
-
         edtBillId = findViewById(R.id.edtBillId);
         edtNumber = findViewById(R.id.edtNumber);
         edtBillDate = findViewById(R.id.edtBillDate);
@@ -92,16 +91,14 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             {
                 clearfields();
             }
-
-            addDatePicker();
-
         });
 
+        addDatePicker();
     }
 
-
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+    {
         ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
         ((TextView) parent.getChildAt(0)).setTextSize(18);
         ((TextView) parent.getChildAt(0)).setTypeface(null,Typeface.BOLD);
@@ -112,9 +109,11 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             clearfields();
             edtUnitsUsed.setVisibility(View.INVISIBLE);
             edtAgencyName.setVisibility(View.INVISIBLE);
-            btnBillAdd.setOnClickListener(new View.OnClickListener() {
+            btnBillAdd.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v)
+                {
                     Mobile mObj = new Mobile   (edtBillIdText.getText().toString(),
                             edtBillDateText.getText().toString(),
                             Bill.BillType.Mobile,
@@ -139,9 +138,11 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             edtAgencyName.setVisibility(View.VISIBLE);
             edtAgencyName.setHint("ENTER AGENCY NAME");
             edtUnitsUsed.setHint("ENTER UNITS USED");
-            btnBillAdd.setOnClickListener(new View.OnClickListener() {
+            btnBillAdd.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v)
+                {
                     Hydro hObj = new Hydro   (edtBillIdText.getText().toString(),
                             edtBillDateText.getText().toString(),
                             Bill.BillType.Hydro,
@@ -163,9 +164,11 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             edtAgencyName.setVisibility(View.VISIBLE);
             edtAgencyName.setHint("ENTER PROVIDER NAME");
             edtUnitsUsed.setHint("ENTER DATA USED");
-            btnBillAdd.setOnClickListener(new View.OnClickListener() {
+            btnBillAdd.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v)
+                {
                     Internet iObj = new Internet   (edtBillIdText.getText().toString(),
                             edtBillDateText.getText().toString(),
                             Bill.BillType.Hydro,
@@ -180,16 +183,18 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         }
     }
 
-
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void onNothingSelected(AdapterView<?> parent)
+    {
     }
 
     private void addDatePicker()
     {
-        edtBillDateText.setOnClickListener(new View.OnClickListener() {
+        edtBillDateText.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 Calendar cal = Calendar.getInstance();
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
@@ -205,7 +210,8 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
             }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        mDateSetListener = new DatePickerDialog.OnDateSetListener()
+        {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day)
             {
@@ -224,11 +230,11 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         };
     }
 
-    public static String getMonthName(int monthNumber){
+    public static String getMonthName(int monthNumber)
+    {
         String[] monthNames = {"Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
         return monthNames[monthNumber-1];
     }
-
     public void initFields()
     {
         edtMinsUsed.setVisibility(View.VISIBLE);
@@ -262,5 +268,4 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         edtDataUsedText.getText().clear();
         edtUnitsUsedText.getText().clear();
     }
-
 }
