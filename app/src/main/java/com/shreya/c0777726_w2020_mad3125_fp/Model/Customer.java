@@ -182,5 +182,30 @@ public class Customer implements Parcelable
         return 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags)
+    {
+        dest.writeString(customerId);
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(gender);
+        dest.writeString(email);
+        dest.writeString(userName);
+        dest.writeString(password);
+        dest.writeString(location);
+        dest.writeString(dateOfBirth);
+        dest.writeMap(customerBills);
+
+        if (allTotal == null)
+        {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(allTotal);
+        }
+        dest.writeInt(customerImg);
+    }
+
+
 
 }
