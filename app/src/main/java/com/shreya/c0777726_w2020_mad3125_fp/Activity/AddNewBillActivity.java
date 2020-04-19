@@ -229,4 +229,14 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         return monthNames[monthNumber-1];
     }
 
+    public void initFields()
+    {
+        edtMinsUsed.setVisibility(View.VISIBLE);
+        edtNumber.setVisibility(View.VISIBLE);
+        edtDataUsed.setVisibility(View.VISIBLE);
+        edtMinsUsed.setVisibility(View.VISIBLE);
+        edtPlanName.setVisibility(View.VISIBLE);
+        edtManuftrName.setVisibility(View.VISIBLE);
+    }
+
 }
