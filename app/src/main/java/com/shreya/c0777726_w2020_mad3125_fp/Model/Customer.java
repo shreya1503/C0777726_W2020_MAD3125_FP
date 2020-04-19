@@ -49,5 +49,22 @@ public class Customer implements Parcelable
     }
 
 
+    public static final Creator<Customer> CREATOR = new Creator<Customer>()
+    {
+        @Override
+        public Customer createFromParcel(Parcel in) {
+            return new Customer(in);
+        }
+
+        @Override
+        public Customer[] newArray(int size) {
+            return new Customer[size];
+        }
+    };
+
+    public int getCustomerImg() {
+        return customerImg;
+    }
+
 
 }
