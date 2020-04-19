@@ -98,11 +98,49 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+        ((TextView) parent.getChildAt(0)).setTextSize(18);
+        ((TextView) parent.getChildAt(0)).setTypeface(null,Typeface.BOLD);
 
-    }
+        if(position == 0)
+        {
+            initFields();
+            clearfields();
+            edtUnitsUsed.setVisibility(View.INVISIBLE);
+            edtAgencyName.setVisibility(View.INVISIBLE);
+            btnBillAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Mobile mObj = new Mobile   (edtBillIdText.getText().toString(),
+                            edtBillDateText.getText().toString(),
+                            Bill.BillType.Mobile,
+                            edtManuftrNameText.getText().toString(),
+                            edtPlanNameText.getText().toString(),
+                            edtNumberText.getText().toString(),
+                            Integer.parseInt(edtDataUsedText.getText().toString()),
+                            Integer.parseInt(edtMinsUsedText.getText().toString()));
+                    custObj.getCustomerBills().put(mObj.getBillId(),mObj);
+                    Intent mIntent = new Intent(AddNewBillActivity.this, ShowBillDetailActivity.class);
+                    mIntent.putExtra("CustomerBills", custObj);
+                    startActivity(mIntent);
+                }
+            });
+        }
 
-    @Override
+        if(position == 1)
+        {
+            hidefields();
+            clearfields();
+            edtUnitsUsed.setVisibility(View.VISIBLE);
+            edtAgencyName.setVisibility(View.VISIBLE);
+            edtAgencyName.setHint("ENTER AGENCY NAME");
+            edtUnitsUsed.setHint("ENTER UNITS USED");
+            btnBillAdd.setOnClickListener(new View.OnClickListener()
+            {
+
+                @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-}
+
+        }
