@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.shreya.c0777726_w2020_mad3125_fp.Adapter.CustomerAdapter;
 import com.shreya.c0777726_w2020_mad3125_fp.Model.Customer;
 import com.shreya.c0777726_w2020_mad3125_fp.R;
-import com.shreya.c0777726_w2020_mad3125_fp.Util.DataSingelton;
+import com.shreya.c0777726_w2020_mad3125_fp.Util.DataSingleton;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -73,9 +73,9 @@ public class CustomerListActivity extends AppCompatActivity
 
     private void populateCustomers()
     {
-        DataSingelton.getInstance().populateData();
+        DataSingleton.getInstance().populateData();
         customers = new ArrayList();
-        HashMap<String, Customer> customerHashMap = DataSingelton.getInstance().getCustomerMap();
+        HashMap<String, Customer> customerHashMap = DataSingleton.getInstance().getCustomerMap();
         Collection<Customer> demoValues = customerHashMap.values();
         customerArrayList = new ArrayList<>(demoValues);
         customers.addAll(customerArrayList);

@@ -8,6 +8,23 @@ import com.shreya.c0777726_w2020_mad3125_fp.Model.Mobile;
 import com.shreya.c0777726_w2020_mad3125_fp.R;
 
 
+import java.util.HashMap;
+
 public class DataSingleton
 {
+    private static DataSingleton repoObj = new DataSingleton();
+
+    public static DataSingleton getInstance() {
+        return repoObj;
+    }
+
+    private DataSingleton() {
+    }
+
+    private HashMap<String, Customer> customerMap = new HashMap<>();
+
+    public HashMap getCustomerMap() {
+        return this.customerMap;
+    }
+
 }
