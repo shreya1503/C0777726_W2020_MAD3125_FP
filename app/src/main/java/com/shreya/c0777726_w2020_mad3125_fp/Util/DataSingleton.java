@@ -60,6 +60,11 @@ public class DataSingleton
                 "Home Fast",
                 15);
 
+        Internet in1 = new Internet("IN01",
+                "25/July/2003",
+                Bill.BillType.Internet,
+                "Virgin",
+                21.3);
 
 
 
