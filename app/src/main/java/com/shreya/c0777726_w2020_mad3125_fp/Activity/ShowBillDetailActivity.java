@@ -65,5 +65,30 @@ public class ShowBillDetailActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+        switch (id)
+        {
+            case R.id.btnLogout:
+                Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(logout);
+                finish();
+                return true;
+            case R.id.btnAdd:
+                Intent mIntent = new Intent(ShowBillDetailActivity.this, AddNewBillActivity.class);
+                mIntent.putExtra("CustomerBills2", customerObj);
+                startActivity(mIntent);
+
+        }
+
+        return true;
+    }
+
+    public ArrayList<Bill> getBillsArrayList()
+    {
+        return this.billsArrayList;
+    }
 
 }
