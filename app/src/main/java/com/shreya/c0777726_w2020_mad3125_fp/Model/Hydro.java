@@ -12,4 +12,21 @@ public class Hydro extends Bill
         this.unitsUsed = unitsUsed;
         this.billTotal = billCalculate();
     }
+
+    @Override
+    public Double billCalculate()
+    {
+        double billAmount = 0.0;
+        if (unitsUsed < 10)
+        {
+            billAmount = 1.5 * unitsUsed;
+        }
+        else
+        {
+            billAmount = 2 * unitsUsed;
+        }
+        return billAmount;
+    }
+
 }
+
