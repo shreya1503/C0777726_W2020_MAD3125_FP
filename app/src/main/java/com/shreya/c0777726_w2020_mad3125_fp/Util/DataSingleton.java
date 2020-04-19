@@ -66,6 +66,12 @@ public class DataSingleton
                 "Virgin",
                 21.3);
 
+        Internet in2 = new Internet("IN02",
+                "05/Dec/2013",
+                Bill.BillType.Internet,
+                "Rogers",
+                20.5);
+
 
 
 
