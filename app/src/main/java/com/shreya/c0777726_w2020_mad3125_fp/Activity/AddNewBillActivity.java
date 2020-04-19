@@ -249,4 +249,18 @@ public class AddNewBillActivity extends AppCompatActivity implements AdapterView
         edtManuftrName.setVisibility(View.INVISIBLE);
     }
 
+    public void clearfields()
+    {
+        edtNumberText.getText().clear();
+        edtDataUsedText.getText().clear();
+        edtMinsUsedText.getText().clear();
+        edtPlanNameText.getText().clear();
+        edtManuftrNameText.getText().clear();
+        edtBillDateText.getText().clear();
+        edtBillIdText.getText().clear();
+        edtAgencyNameText.getText().clear();
+        edtDataUsedText.getText().clear();
+        edtUnitsUsedText.getText().clear();
+    }
+
 }
