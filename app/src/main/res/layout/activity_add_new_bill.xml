@@ -375,6 +375,20 @@
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/addbill" />
 
+        <Spinner
+            android:id="@+id/spnBillType"
+            android:layout_width="241dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="165dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="900dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
